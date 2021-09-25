@@ -10,9 +10,9 @@ Rust crate for reading SER files used in astrophotography.
 let ser = SerFile::open(filename)?;
 
 println!("Image size: {} x {}", ser.image_width, ser.image_height);
-println!("Frame count: {:?}", ser.frame_count);
-println!("Frame size: {:?}", ser.image_frame_size);
-println!("Bytes per pixel: {:?}", ser.bytes_per_pixel);
+println!("Frame count: {}", ser.frame_count);
+println!("Frame size: {}", ser.image_frame_size);
+println!("Bytes per pixel: {}", ser.bytes_per_pixel);
 println!("Bayer: {:?}", ser.bayer);
 println!("Endianness: {:?}", ser.endianness);
 

@@ -35,14 +35,14 @@ fn main() -> Result<()> {
     let ser = SerFile::open(&opt.filename).unwrap();
 
     println!("Image size: {} x {}", ser.image_width, ser.image_height);
-    println!("Frame count: {:?}", ser.frame_count);
-    println!("Frame size: {:?}", ser.image_frame_size);
-    println!("Bytes per pixel: {:?}", ser.bytes_per_pixel);
+    println!("Frame count: {}", ser.frame_count);
+    println!("Frame size: {}", ser.image_frame_size);
+    println!("Bytes per pixel: {}", ser.bytes_per_pixel);
     println!("Bayer: {:?}", ser.bayer);
     println!("Endianness: {:?}", ser.endianness);
 
     for i in 0..ser.frame_count {
-        let bytes = ser.read_frame(i)?;
+        let _bytes = ser.read_frame(i)?;
         // do processing ...
     }
 
