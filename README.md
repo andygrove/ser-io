@@ -1,6 +1,6 @@
 # ser-io
 
-[![crates.io](https://img.shields.io/crates/v/riff-io.svg)](https://crates.io/crates/riff-io)
+[![crates.io](https://img.shields.io/crates/v/ser-io.svg)](https://crates.io/crates/ser-io)
 
 Rust crate for reading SER files used in astrophotography.
 
