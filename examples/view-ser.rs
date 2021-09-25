@@ -20,8 +20,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-use structopt::StructOpt;
 use ser_io::SerFile;
+use std::io::Result;
+use structopt::StructOpt;
 
 #[derive(StructOpt, Debug)]
 struct Opt {
@@ -29,7 +30,7 @@ struct Opt {
     filename: String,
 }
 
-fn main() {
+fn main() -> Result<()> {
     let opt = Opt::from_args();
     let ser = SerFile::open(&opt.filename).unwrap();
 
@@ -39,4 +40,11 @@ fn main() {
     println!("Bytes per pixel: {:?}", ser.bytes_per_pixel);
     println!("Bayer: {:?}", ser.bayer);
     println!("Endianness: {:?}", ser.endianness);
+
+    for i in 0..ser.frame_count {
+        let bytes = ser.read_frame(i)?;
+        // do processing ...
+    }
+
+    Ok(())
 }
