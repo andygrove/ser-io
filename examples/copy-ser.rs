@@ -20,36 +20,25 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-use ser_io::SerFile;
+use ser_io::{SerFile, SerWriter};
+use std::fs::File;
 use std::io::Result;
 use structopt::StructOpt;
 
 #[derive(StructOpt, Debug)]
 struct Opt {
-    /// AVI filename
-    filename: String,
+    input: String,
+    output: String,
 }
 
 fn main() -> Result<()> {
     let opt = Opt::from_args();
-    let ser = SerFile::open(&opt.filename).unwrap();
-
-    let header = &ser.header;
-    println!(
-        "Image size: {} x {}",
-        header.image_width, header.image_height
-    );
-    println!("Frame count: {}", header.frame_count);
-    println!("Frame size: {}", header.image_frame_size);
-    println!("Pixel depth per plane: {}", header.pixel_depth_per_plane);
-    println!("Bytes per pixel: {}", header.bytes_per_pixel);
-    println!("Bayer: {:?}", header.bayer);
-    println!("Endianness: {:?}", header.endianness);
-
-    for i in 0..header.frame_count {
-        let _bytes = ser.read_frame(i)?;
-        // do processing ...
+    let ser = SerFile::open(&opt.input).unwrap();
+    let mut f = File::create(&opt.output)?;
+    let mut w = SerWriter::new(&mut f, &ser.header)?;
+    for i in 0..ser.header.frame_count {
+        let frame = ser.read_frame(i)?;
+        w.write_frame(frame)?;
     }
-
-    Ok(())
+    w.write_timestamps(&ser.timestamps)
 }
