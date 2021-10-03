@@ -2,7 +2,7 @@
 
 [![crates.io](https://img.shields.io/crates/v/ser-io.svg)](https://crates.io/crates/ser-io)
 
-Rust crate for reading SER files used in astrophotography.
+Rust crate for reading and writing SER video files, commonly used in astrophotography.
 
 ## Usage
 
