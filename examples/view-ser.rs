@@ -40,9 +40,9 @@ fn main() -> Result<()> {
         header.image_width, header.image_height
     );
     println!("Frame count: {}", header.frame_count);
-    println!("Frame size: {}", header.image_frame_size);
+    println!("Frame size: {}", header.image_frame_size());
     println!("Pixel depth per plane: {}", header.pixel_depth_per_plane);
-    println!("Bytes per pixel: {}", header.bytes_per_pixel);
+    println!("Bytes per pixel: {}", header.bytes_per_pixel());
     println!("Bayer: {:?}", header.bayer);
     println!("Endianness: {:?}", header.endianness);
 

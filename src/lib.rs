@@ -27,7 +27,7 @@ use std::io::{Error, ErrorKind, Result, Write};
 use std::str;
 
 use byteorder::{LittleEndian, ReadBytesExt, WriteBytesExt};
-use memmap::{Mmap, MmapOptions};
+use memmap2::{Mmap, MmapOptions};
 
 const HEADER_SIZE: usize = 178;
 

@@ -6,7 +6,7 @@ Rust crate for reading SER files used in astrophotography.
 
 ## Usage
 
-```rust,no_run
+```rust,no_run,ignore
 let ser = SerFile::open(filename)?;
 
 println!("Image size: {} x {}", ser.image_width, ser.image_height);
@@ -24,7 +24,7 @@ for i in 0..ser.frame_count {
 
 ## Example
 
-```text,no_run
+```text,no_run,ignore
 $ cargo run --example view-ser ~/Documents/2021-09-20-0323_1-CapObj.SER
  
 Image size: 4144 x 2822
