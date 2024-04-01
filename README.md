@@ -4,6 +4,10 @@
 
 Rust crate for reading SER files used in astrophotography.
 
+## Looking For New Maintainers
+
+I no longer maintain this crate and would be happy to transfer to a new maintainer.
+
 ## Usage
 
 ```rust,no_run,ignore
