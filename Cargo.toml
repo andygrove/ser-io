@@ -6,7 +6,7 @@ authors = ["Andy Grove <andygrove73@gmail.com>"]
 repository = "https://github.com/andygrove/ser-io"
 keywords = ["ser", "astrophotography"]
 readme = "README.md"
-version = "0.2.0"
+version = "0.3.0"
 edition = "2018"
 
 [dependencies]
